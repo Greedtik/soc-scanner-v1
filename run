@@ -1,0 +1,11 @@
+#!/bin/bash
+TMP_DIR="/tmp/socscanner"
+REPO="https://github.com/YOURUSER/soc_scanner"
+
+echo "Downloading SOC Scanner..."
+rm -rf $TMP_DIR
+git clone $REPO $TMP_DIR >/dev/null 2>&1
+
+cd $TMP_DIR || exit 1
+chmod +x socscan.sh
+sudo bash socscan.sh "$@"
