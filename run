@@ -1,6 +1,6 @@
 #!/bin/bash
-TMP_DIR="/tmp/socscanner"
-REPO="https://github.com/YOURUSER/soc_scanner"
+TMP_DIR="/tmp/socscanner-v1"
+REPO="https://github.com/Greedtik/soc_scanner-v1"
 
 echo "Downloading SOC Scanner..."
 rm -rf $TMP_DIR
