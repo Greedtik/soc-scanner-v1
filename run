@@ -1,8 +1,8 @@
 #!/bin/bash
 
-TMP_DIR="/tmp/socscanner"
+TMP_DIR="/tmp/socscanner-v1"
 # แก้ไข URL ชี้ไปที่ Repo ของคุณที่เปิด Public ไว้
-REPO="https://github.com/Greedtik/soc-scanner.git"
+REPO="https://github.com/Greedtik/soc-scanner-v1.git"
 
 echo "Downloading SOC Scanner..."
 rm -rf "$TMP_DIR"
