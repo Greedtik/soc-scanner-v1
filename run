@@ -1,11 +1,20 @@
 #!/bin/bash
-TMP_DIR="/tmp/socscanner-v1"
-REPO="https://github.com/Greedtik/soc_scanner-v1"
+
+TMP_DIR="/tmp/socscanner"
+# แก้ไข URL ชี้ไปที่ Repo ของคุณที่เปิด Public ไว้
+REPO="https://github.com/Greedtik/soc-scanner.git"
 
 echo "Downloading SOC Scanner..."
-rm -rf $TMP_DIR
-git clone $REPO $TMP_DIR >/dev/null 2>&1
+rm -rf "$TMP_DIR"
 
-cd $TMP_DIR || exit 1
-chmod +x socscan.sh
-sudo bash socscan.sh "$@"
+# ทำการ Clone โค้ด หากไม่สำเร็จจะแจ้งเตือนแทนการถามรหัสผ่านมั่วๆ
+if git clone "$REPO" "$TMP_DIR"; then
+    cd "$TMP_DIR" || exit 1
+    chmod +x socscan.sh
+    echo "Running SOC Scanner..."
+    sudo bash socscan.sh "$@"
+else
+    echo "Error: Failed to download SOC Scanner."
+    echo "Please check if the repository is public and the URL is correct."
+    exit 1
+fi
